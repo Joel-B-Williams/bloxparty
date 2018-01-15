@@ -5,11 +5,13 @@ import './Playpen.css';
 
 class Playpen extends Component {
 
+	state={
+		blocks: []
+	}
+
   render() {
     return (
-      <div className="Playpen">
-        <Block></Block>
-      </div>
+      <div className="Playpen"></div>
     );
   }
 }

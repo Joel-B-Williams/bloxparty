@@ -4,6 +4,18 @@ import Playpen from './Playpen';
 import './App.css';
 
 class App extends Component {
+
+  state={
+    playpen: [],
+    toDo: 'Time to create a Playpen instance & display it'
+  }
+
+//   componentDidMount(){
+// // call to db to get all of this playpen's blocks
+// // editor's note - need to have an instance of playpen first
+//   }
+
+        // <Playpen></Playpen>
   render() {
     return (
       <div className="App">
@@ -12,9 +24,8 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <p className="App-intro">
-          I should have a single Blox in play now
+          {this.state.toDo}
         </p>
-        <Playpen></Playpen>
       </div>
     );
   }

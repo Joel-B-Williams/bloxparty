@@ -7,16 +7,19 @@ class Block extends Component {
 
 	state={
 		height: 100,
-		width: 100
+		width: 100,
+		color: 'white'
 	};
 
   render() {
+ 		console.log('state', this.state);
     return (
 	    <Rnd
 			  size={{width: this.state.width, height: this.state.height}}
 			  className="block"
 			  bounds="parent"
-			  onDragStop={(e, d) => { this.setState({ x: d.x, y: d.y }); console.log(d.x, d.y); }}
+			  onDragStop={(e, d) => { this.setState({ x: d.x, y: d.y }); 
+			  	console.log(d.x, d.y); }}
 			  onResize={(e, direction, ref, delta, position) => {
 			    this.setState({
 			      width: ref.offsetWidth,
