@@ -1,0 +1,7 @@
+.Playpen {
+	width: 80%;
+	height: 70%;
+	border: solid black 1px;
+	position: absolute;
+	margin: 0 0 0 10%;
+}
