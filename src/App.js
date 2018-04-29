@@ -6,17 +6,31 @@ import './App.css';
 class App extends Component {
 
   state={
-    playpen: [],
+    playpen: {},
     toDo: 'Time to create a Playpen instance & display it'
   }
 
-  // this.newPlaypen = this.newPlaypen.bind(this);
+  componentDidMount(){
+    // needs to set state to refresh?
+    let playpenName = this.state.playpen.name || "no playpen"
+    console.log("test", playpenName);
+    
+    fetch('http://localhost:3001/api/playpen/' + playpenName)
+    .then(function(response) {
+      response.json()
+      .then(function(data) {
+        console.log("21", data);
+      })
+    })
+  }
 
   newPlaypen(e) {
     e.preventDefault();
     console.log("add a playpen");
     // need to POST a new playpen & make it the current state
     let playpenData = { name: this.refs.playpen_name.value };
+
+    this.setState({ playpen: playpenData.name });
 
     var request = new Request('http://localhost:3001/api/new-playpen', {
       method: 'POST',
@@ -32,7 +46,6 @@ class App extends Component {
       });
     })
     .catch(function(err) {
-      console.log('caught in app.js')
       console.log(err);
     });
 
